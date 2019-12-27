@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TerminosCondiciones__c</fullName>
+    <description>Términos y condiciones del documento para la cotización</description>
+    <externalId>false</externalId>
+    <label>Terminos y Condiciones</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>Html</type>
+    <visibleLines>25</visibleLines>
+</CustomField>
