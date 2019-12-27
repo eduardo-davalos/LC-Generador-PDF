@@ -1,0 +1,32 @@
+<aura:component controller="GeneracionFormatoImpresionController" access="global" implements='force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId'>
+
+    <!-- Atributos -->
+    <aura:attribute name="refrescaComponente" type="Boolean" default="false" description="variable para saber si reiniciamos el componente"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false" description="variable para saber si mostramos el spinner de cargando"/>
+    <aura:attribute name="formatosDisponibles" type="List" default="{}" description="Lista para ver las plantillas de formatos disponibles"/>
+    <aura:attribute name="formatoSeleccionado" type="String" default="" description="Id de la plantilla seleccionada"/>
+    <!-- Acciones -->
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }" />
+    <aura:handler name="change" value="{!v.refrescaComponente}" action="{!c.init}" />
+    <!-- Body -->
+    <lightning:card title="Genera formato" iconName="standard:account">
+        <!-- Spinner -->
+        <aura:if isTrue="{!v.showSpinner}">
+            <div class="slds-p-horizontal--small slds-size--1-of-1">
+                <div class="slds-p-horizontal--small slds-size--1-of-1 isActivityLoading">
+                    <lightning:spinner variant="brand" size="medium" />
+                </div>
+            </div>
+        </aura:if>
+        <!-- Fin Spinner -->
+        <aura:set attribute="actions">
+            <lightning:select value="{!v.formatoSeleccionado}" label="Plantilla de impresión" required="true">
+                <aura:iteration items="{!v.formatosDisponibles}" var="item">
+                    <option value="{!item.Id}">{!item.Name}</option>
+                </aura:iteration>
+            </lightning:select>
+            <lightning:button label="Generar formato" onclick="{!c.generarFormato}" />
+        </aura:set>
+    </lightning:card>
+    <!-- Fin  Body -->
+</aura:component>

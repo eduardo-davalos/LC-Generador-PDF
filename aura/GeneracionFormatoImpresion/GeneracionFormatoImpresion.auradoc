@@ -1,0 +1,6 @@
+<aura:documentation>
+	<aura:description>Documentation</aura:description>
+	<aura:example name="ExampleName" ref="exampleComponentName" label="Label">
+		Componente para generar formato pdf en base a un registro
+	</aura:example>
+</aura:documentation>
